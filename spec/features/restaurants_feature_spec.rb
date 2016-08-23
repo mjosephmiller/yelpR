@@ -10,6 +10,7 @@ feature 'restaruants' do
   end
 
   context 'restaurants have been added' do
+
     before do
       Restaurant.create(name: 'KFC')
     end
@@ -43,6 +44,7 @@ feature 'restaruants' do
       expect(current_path).to eq "/restaurants/#{gggg.id}"
     end
   end
+
   context 'editing restaurants' do
 
     before { Restaurant.create name: 'KFC', description: 'Deep fried goodness' }
@@ -57,7 +59,6 @@ feature 'restaruants' do
      expect(page).to have_content 'Deep fried goodness'
      expect(current_path).to eq '/restaurants'
     end
-
   end
 
   context 'deleting restaurants' do
@@ -72,4 +73,16 @@ feature 'restaruants' do
     end
 
   end
+
+    context 'an invalid restaurant' do
+    it 'does not let you submit a name that is too short' do
+      visit '/restaurants'
+      click_link 'Add a restaurant'
+      fill_in 'Name', with: 'kf'
+      click_button 'Create Restaurant'
+      expect(page).not_to have_css 'h2', text: 'kf'
+      expect(page).to have_content 'error'
+    end
+  end
+
 end
