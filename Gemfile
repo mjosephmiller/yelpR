@@ -8,7 +8,7 @@ end
 
 gem 'devise'
 gem 'omniauth-facebook'
-
+gem 'pry'
 
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
