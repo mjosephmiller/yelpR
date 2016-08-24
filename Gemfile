@@ -7,6 +7,8 @@ group :test do
 end
 
 gem 'devise'
+gem 'omniauth-facebook'
+
 
 gem 'haml'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

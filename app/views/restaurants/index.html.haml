@@ -2,6 +2,7 @@
   - @restaurants.each do |restaurant|
     %h2= link_to restaurant.name, restaurant_path(restaurant)
     %h5= restaurant.description
+    %h5='Reviews and Ratings:'
     -restaurant.reviews.each do |review|
       %review
         %i

@@ -1,2 +1,10 @@
 %p= @restaurant.name
-%p= @restaurant.description
+%h5= @restaurant.description
+%h5='Reviews and Ratings:'
+-@restaurant.reviews.each do |review|
+  %review
+    %i
+      %div(id='review-content')= review.thoughtsandfeelings
+      %div(id='review-rating')= review.rating
+    %br
+%h5= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant)
