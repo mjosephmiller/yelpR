@@ -72,6 +72,19 @@ feature 'restaruants' do
      expect(page).to have_content 'Deep fried goodness'
      expect(current_path).to eq '/restaurants'
     end
+
+    scenario 'a user can only a edit a restaurant they created' do
+      Restaurant.create name: 'KFC', description: 'Deep fried goodness'
+      click_link 'Sign out'
+      visit '/users/sign_up'
+      fill_in('Email', with: 'testy@test.com')
+      fill_in('Password', with: 'password')
+      fill_in('Password confirmation', with: 'password')
+      click_button 'Sign up'
+      visit '/restaurants'
+      click_link 'Edit KFC'
+      expect(page).to have_content 'You did not create this restaurant'
+    end
   end
 
   context 'deleting restaurants' do
