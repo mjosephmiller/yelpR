@@ -1,10 +1,17 @@
 %p= @restaurant.name
 %h5= @restaurant.description
-%h5='Reviews and Ratings:'
--@restaurant.reviews.each do |review|
-  %review
-    %i
-      %div(id='review-content')= review.thoughtsandfeelings
-      %div(id='review-rating')= review.rating
-    %br
+
+- if @restaurant.average_rating.is_a? String
+  %h4 Average rating: N/A
+- else
+  %h4 Average rating: #{@restaurant.average_rating.round(1)}
+  #{star_rating(@restaurant.average_rating)}
+- if @restaurant.reviews == []
+  %h4 There are no reviews for this establishment yet. Why not leave the first?
+- else
+  %h4'Reviews and Ratings:'
+  -@restaurant.reviews.each do |review|
+    %review
+      %p= "#{review.thoughtsandfeelings} - Rating: #{review.rating}"
+
 %h5= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant)

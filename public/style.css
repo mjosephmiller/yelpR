@@ -1,0 +1,16 @@
+body{
+
+}
+#restaurant {
+  height: 220px;
+}
+
+header {
+  background-color: #80ccff;
+  height: 50px;
+  padding: 15px;
+}
+
+#AddRestaurant{
+  padding-left: 15px;
+}

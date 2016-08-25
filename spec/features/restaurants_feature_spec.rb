@@ -69,8 +69,7 @@ feature 'restaruants' do
       create_restaurant
       click_link 'Sign out'
       another_sign_up
-      click_link 'Edit KFC'
-      expect(page).to have_content 'You did not create this restaurant'
+      expect(page).not_to have_content 'Edit KFC'
     end
   end
 

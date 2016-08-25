@@ -9,6 +9,7 @@ feature 'reviewing' do
   select '3', from: 'Rating'
   click_button 'Leave Review'
   expect(current_path).to eq '/restaurants'
+  click_link 'KFC'
   expect(page).to have_content('so so')
   end
 
@@ -38,6 +39,6 @@ feature 'reviewing' do
     click_link 'Sign out'
     another_sign_up
     leave_review('Excellent', '5')
-    expect(page).to have_content('Average rating: 4')
+    expect(page).to have_content('Average rating: 4.0 ★★★★☆')
   end
 end
