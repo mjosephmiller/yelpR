@@ -30,7 +30,6 @@ feature 'restaruants' do
 
     scenario 'prompts user to fill out a form, then displays the new restaurant' do
       sign_up
-      visit '/restaurants'
       click_link 'Add a restaurant'
       fill_in 'Name', with: "Gorgeous Georgia's Georgian Grub"
       click_button 'Create Restaurant'
@@ -65,14 +64,14 @@ feature 'restaruants' do
      expect(current_path).to eq '/restaurants'
     end
 
-    # scenario 'a user can only a edit a restaurant they created' do
-    #   Restaurant.new(name: "KFC").save(validate: false)
-    #   click_link 'Sign out'
-    #   sign_up
-    #   visit '/restaurants'
-    #   click_link 'Edit KFC'
-    #   expect(page).to have_content 'You did not create this restaurant'
-    # end
+    scenario 'a user can only a edit a restaurant they created' do
+      sign_up
+      create_restaurant
+      click_link 'Sign out'
+      another_sign_up
+      click_link 'Edit KFC'
+      expect(page).to have_content 'You did not create this restaurant'
+    end
   end
 
   context 'deleting restaurants' do
@@ -80,7 +79,6 @@ feature 'restaruants' do
     scenario 'removes a restaurant when a user clicks a delete link' do
       sign_up
       create_restaurant
-      visit '/restaurants'
       click_link 'Delete KFC'
       expect(page).not_to have_content 'KFC'
       expect(page).to have_content 'Restaurant deleted successfully'
@@ -91,7 +89,6 @@ feature 'restaruants' do
     context 'an invalid restaurant' do
     it 'does not let you submit a name that is too short' do
       sign_up
-      visit '/restaurants'
       click_link 'Add a restaurant'
       fill_in 'Name', with: 'kf'
       click_button 'Create Restaurant'

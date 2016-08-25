@@ -2,11 +2,19 @@
   - @restaurants.each do |restaurant|
     %h2= link_to restaurant.name, restaurant_path(restaurant)
     %h5= restaurant.description
-    %h5='Reviews and Ratings:'
-    -restaurant.reviews.each do |review|
-      %review
-        %i
-          %h5= "#{review.thoughtsandfeelings} - Rating: #{review.rating}"
+
+    - if restaurant.average_rating.is_a? String
+      %h5 Average rating: N/A
+    - else
+      %h5 Average rating: #{restaurant.average_rating.to_i}
+    - if restaurant.reviews == []
+      %h5 There are no reviews for this establishment yet. Why not leave the first?
+    - else
+      %h5='Reviews and Ratings:'
+      -restaurant.reviews.each do |review|
+        %review
+          %i
+            %h5= "#{review.thoughtsandfeelings} - Rating: #{review.rating}"
     %h5= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant)
     %h5= link_to "Edit #{restaurant.name}", edit_restaurant_path(restaurant)
     %h6= link_to "Delete #{restaurant.name}", restaurant_path(restaurant), method: :delete
