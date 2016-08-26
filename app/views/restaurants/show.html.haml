@@ -6,14 +6,21 @@
 - else
   %h4 Average rating: #{@restaurant.average_rating.round(1)}
   #{star_rating(@restaurant.average_rating)}
-- if @restaurant.reviews == []
-  %h4 There are no reviews for this establishment yet. Why not leave the first?
-- else
-  %h4'Reviews and Ratings:'
-  -@restaurant.reviews.each do |review|
-    %review
-      %h5= link_to "Endorse", restaurant_review_endorsements_path(@restaurant, review), method: :POST
-      %p= "#{review.thoughtsandfeelings} - Rating: #{review.rating}"
-      %p= pluralize review.endorsements.count, 'endorsement'
+%h2
+  Reviews
+- @restaurant.reviews.each do |review|
+  %ul
+    %b Review:
+    = review.thoughtsandfeelings
+    %b Rating:
+    = star_rating(review.rating)
+    %span.endorsements-count= review.endorsements.count
+    = 'endorsement'.pluralize review.endorsements.count
+    - if user_signed_in?
+      = link_to "Endorse", restaurant_review_endorsements_path(@restaurant, review), class: 'endorsements-link'
+      -if (current_user.id == review.user_id)
+        = link_to "Edit Review", edit_review_path(review)
+        = link_to "Delete Review",  review_path(review), method: :delete
+
 
 %h5= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant)
