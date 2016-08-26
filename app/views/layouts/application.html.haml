@@ -12,8 +12,8 @@
   %body
 
   %header
-    %h2 CrowdReview
-  %body
+    %div(id='Title')
+      %h2 CrowdReview
     %div(id='Sign_in_links')
       - if user_signed_in?
         = link_to "Sign out", destroy_user_session_path, method: :Delete

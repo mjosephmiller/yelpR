@@ -6,11 +6,17 @@ body{
 }
 
 header {
-  background-color: #80ccff;
+  background-color: black;
   height: 100px;
   padding: 15px;
   vertical-align: middle;
   color: white;
+  padding-bottom: 15px;
+}
+#header a:link{padding-bottom: 15px;}
+
+#Title {
+  text-align: center;
 }
 
 #AddRestaurant{
@@ -18,5 +24,36 @@ header {
 }
 
 #Sign_in_links{
-  padding-left: 15px;
+  padding-right: 15px;
+  float: right;
+  padding-bottom: 15px;
+  vertical-align: middle;
+}
+
+#restaurant_body{
+  padding: 10px;
+}
+#restaurant_label{
+  color: #f5f5f5;
+  text-decoration: none;
+  padding-right: 8px;
+  background-color: #5aafad;
+  border-radius: 5px;
+  border-bottom-left-radius: 0px;
+  border-bottom-right-radius: 0px;
+  text-align: center;
+  padding: 5px;
+  font-size: 18px;
+}
+
+#restaurant_label a:link { color: whitesmoke; }
+#restaurant_label a:visited { color: whitesmoke; }
+#restaurant_label a:hover { color: whitesmoke; }
+#restaurant_label a:active { color: whitesmoke; }
+
+a {
+    color: #E1192C;
+    font-family: arial;
+    text-transform: uppercase;
+    font-size: 12px;
 }
