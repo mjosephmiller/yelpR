@@ -1,9 +1,30 @@
 body{
 }
 #restaurant {
-  height: 280px;
   overflow-x:hidden;
-  /*white-space: nowrap;*/
+  height: 290px;
+  overflow-x: hidden;
+  margin-bottom: 15px;
+}
+img {
+    margin: 0 auto;
+    display: block;
+}
+.frame-square {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+  width: 140px;
+  height: 140px;
+  margin-left: 105px;
+}
+
+.crop {
+height: 120%;
+width: 120%;
+overflow: hidden;
+position: relative;
+border-radius: 50%;
 }
 
 header {
@@ -61,11 +82,13 @@ header {
 }
 .title-header{
   font-size: 36px;
+  font
   color: whitesmoke;
   text-decoration: none;
   text-transform: none;
-
+  font-family: "Courier New", Courier, monospace;
 }
+
 #Title a:link { color: whitesmoke; }
 #Title a:visited { color: whitesmoke; }
 #Title a:hover { color: whitesmoke;

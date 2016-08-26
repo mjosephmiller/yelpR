@@ -6,7 +6,12 @@
       %div(id='restaurant' class="col-sm-6 col-md-4")
         %div(id='restaurant_label')
           %h4= link_to restaurant.name, restaurant_path(restaurant)
+        %div(class='frame-square')
+          %div(class='crop')
+            = link_to restaurant_path(restaurant) do
+              = image_tag restaurant.image.url, size: "150x150"
         %div(id='restaurant_body')
+          %br
           %i= restaurant.description
           - if restaurant.average_rating.is_a? String
             %h5 AVERAGE RATING: N/A

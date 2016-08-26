@@ -11,21 +11,10 @@ feature 'endorsing reviews' do
     click_link 'Sign out'
   end
 
-  scenario 'a user can endorse a review, which updates the review endorsement count' do
-   sign_up
-   visit '/restaurants'
-   click_link 'KFC'
-   click_link 'Endorse'
-   visit '/restaurants'
-   click_link 'KFC'
-   expect(page).to have_content('1 endorsement')
-  end
-
   it 'a user can endorse a review, which increments the endorsement count', js: true do
     visit '/restaurants'
     click_link 'KFC'
     click_link 'Endorse'
-    binding.pry
     expect(page).to have_content("1 endorsement")
   end
 

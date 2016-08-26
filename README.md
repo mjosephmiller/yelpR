@@ -21,9 +21,10 @@ Features:
 ------
 * Visitors can create new restaurants using a form, specifying a name and description
 * Restaurants can be edited and deleted
-* Visitors can leave reviews for restaurants, providing a score (1-5) and a comment about their experience
-* The restaurants individual pages should display all the reviews, along with the average rating of each restaurant
+* Users can leave reviews for restaurants, providing a score (1-5) and a comment about their experience
+* The restaurants' individual pages should display all the reviews, along with the average rating of each restaurant
 * Users can register/login/logout/login via Facebook
 * A user must be logged in to create restaurants and write reviews
-* Users can only edit/delete restaurants which they've created
+* Users can only edit/delete restaurants which they created
 * Users can only leave one review per restaurant
+* Users can edit/delete only the reviews which they created
