@@ -12,6 +12,8 @@
   %h4'Reviews and Ratings:'
   -@restaurant.reviews.each do |review|
     %review
+      %h5= link_to "Endorse", restaurant_review_endorsements_path(@restaurant, review), method: :POST
       %p= "#{review.thoughtsandfeelings} - Rating: #{review.rating}"
+      %p= pluralize review.endorsements.count, 'endorsement'
 
 %h5= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant)

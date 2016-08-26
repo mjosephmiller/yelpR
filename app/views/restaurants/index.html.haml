@@ -8,9 +8,11 @@
         %i= restaurant.description
         - if restaurant.average_rating.is_a? String
           %h4 Average rating: N/A
+          %p There are no reviews for this establishment yet. Why not leave the first?
         - else
           %h4 Average rating: #{restaurant.average_rating.round(1)}
           #{star_rating(restaurant.average_rating)}
+          %p= "Based on #{restaurant.reviews.count} reviews."
         %h5= link_to "Review #{restaurant.name}", new_restaurant_review_path(restaurant)
         - if current_user
           - if current_user.id === restaurant.user_id
