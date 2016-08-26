@@ -15,12 +15,16 @@ header {
 }
 #header a:link{padding-bottom: 15px;}
 
-#Title {
+#title {
   text-align: center;
 }
 
+.h2, h2 {
+    font-size: 30px;
+    text-align: center;
+}
 #AddRestaurant{
-  padding-left: 15px;
+  padding-left: 25px;
 }
 
 #Sign_in_links{
