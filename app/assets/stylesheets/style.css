@@ -3,7 +3,7 @@ body{
 #restaurant {
   height: 280px;
   overflow-x:hidden;
-  white-space: nowrap;
+  /*white-space: nowrap;*/
 }
 
 header {
@@ -28,9 +28,6 @@ header {
 
 }
 
-/*h5 {
-  margin: 15px;
-}*/
 #AddRestaurant{
   padding-left: 25px;
 }
@@ -58,6 +55,18 @@ header {
   padding: 5px;
   font-size: 18px;
 }
+.title-header{
+  font-size: 30px;
+  color: whitesmoke;
+  text-decoration: none;
+  text-transform: none;
+
+}
+#Title a:link { color: whitesmoke; }
+#Title a:visited { color: whitesmoke; }
+#Title a:hover { color: whitesmoke;
+text-decoration: none;}
+#Title a:active { color: whitesmoke; }
 
 #restaurant_label a:link { color: whitesmoke; }
 #restaurant_label a:visited { color: whitesmoke; }
@@ -69,4 +78,5 @@ a {
     font-family: arial;
     text-transform: uppercase;
     font-size: 12px;
+    text-decoration: none;
 }

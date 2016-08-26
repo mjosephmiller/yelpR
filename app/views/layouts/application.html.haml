@@ -13,7 +13,8 @@
 
   %header
     %div(id="Title" class="clip-text")
-      %h2 CrowdReview
+      %h2
+        = link_to "CrowdReview", root_path, class: 'title-header'
     %div(id='Sign_in_links')
       - if user_signed_in?
         = link_to "Sign out", destroy_user_session_path, method: :Delete
