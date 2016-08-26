@@ -1,5 +1,4 @@
 body{
-
 }
 #restaurant {
   height: 280px;
@@ -20,11 +19,18 @@ header {
 #title {
   text-align: center;
 }
-
+#content{
+  margin: 15px;
+}
 .h2, h2 {
     font-size: 30px;
     text-align: center;
+
 }
+
+/*h5 {
+  margin: 15px;
+}*/
 #AddRestaurant{
   padding-left: 25px;
 }

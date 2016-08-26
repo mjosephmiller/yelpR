@@ -1,0 +1,6 @@
+= form_for @review, url: {action: "update"} do |f| 
+  = f.label :thoughtsandfeelings
+  = f.text_area :thoughtsandfeelings
+  = f.label :rating
+  = f.select :rating, (1..5)
+  = f.submit 'Update Review'

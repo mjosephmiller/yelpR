@@ -1,10 +1,10 @@
-%p= @restaurant.name
+%h2= @restaurant.name
 %h5= @restaurant.description
 
 - if @restaurant.average_rating.is_a? String
-  %h4 Average rating: N/A
+  %h5 AVERAGE RATING: N/A
 - else
-  %h4 Average rating: #{@restaurant.average_rating.round(1)}
+  %h5 AVERAGE RATING: #{@restaurant.average_rating.round(1)}
   #{star_rating(@restaurant.average_rating)}
 %h2
   Reviews
@@ -19,8 +19,8 @@
     - if user_signed_in?
       = link_to "Endorse", restaurant_review_endorsements_path(@restaurant, review), class: 'endorsements-link'
       -if (current_user.id == review.user_id)
-        = link_to "Edit Review", edit_review_path(review)
-        = link_to "Delete Review",  review_path(review), method: :delete
+        = link_to "Edit Review", edit_restaurant_review_path(@restaurant, review)
+        = link_to "Delete Review", restaurant_review_path(@restaurant, review), method: :delete
 
 
 %h5= link_to "Review #{@restaurant.name}", new_restaurant_review_path(@restaurant)
