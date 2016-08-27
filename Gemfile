@@ -16,7 +16,7 @@ gem 'pry'
 gem 'figaro'
 gem 'haml'
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk', '~> 2.3'
 
 
 
