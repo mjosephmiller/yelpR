@@ -16,6 +16,8 @@ gem 'pry'
 gem 'figaro'
 gem 'haml'
 gem 'paperclip'
+gem 'aws-sdk'
+
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
